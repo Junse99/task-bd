@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TagTask } from './entities/tagTask.entity';
+import { TagTaskModule } from './modules/tag-task/tag-task.module';
 import { TagModule } from './modules/tag/tag.module';
 import { TaskModule } from './modules/task/task.module';
 import { UserModule } from './modules/user/user.module';
@@ -21,10 +22,7 @@ import { UserModule } from './modules/user/user.module';
       ssl: { rejectUnauthorized: false }
       //Para que todos los cambios se sincronicen con la BD
     }),
-    UserModule,
-    TagModule,
-    TaskModule,
-    TagTask
+    UserModule
   ],
   controllers: [AppController],
   providers: [AppService],
