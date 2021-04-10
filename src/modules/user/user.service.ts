@@ -12,4 +12,9 @@ export class UserService {
   async getAllUsers(){
     return await this.userRepository.find()
   }
+
+  async createUser(body){
+    const res = await this.userRepository.save(body)
+    return res
+  }
 }
