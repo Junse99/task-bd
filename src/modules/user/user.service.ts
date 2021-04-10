@@ -14,7 +14,7 @@ export class UserService {
   }
 
   async createUser(body){
-    const res = await this.userRepository.save(body)
-    return res
+    console.log(body)
+    return await this.userRepository.save(body)
   }
 }

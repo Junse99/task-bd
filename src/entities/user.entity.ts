@@ -14,6 +14,7 @@ export class User {
     name: 'name', 
     nullable: false
   })
+  name:string
 
   @Column({ 
     name: 'email',
@@ -21,30 +22,36 @@ export class User {
     unique: true,
     nullable: false
   })
+  email:string
 
   @Column({
     name: 'keySecret',
     type: 'varchar',
     nullable: false
   })
+  keySecret:string
 
   @Column({
     type: 'enum', 
     enum: enumState, 
-    name: 'state'
+    name: 'state',
+    default: enumState.ENABLE
   })
+  state:enumState
 
   @Column({
     name: 'created_at',
     type: 'timestamp',
     nullable: false
   })
+  created_at: Date
 
   @Column({
     name: 'update_at',
     type: 'timestamp',
     nullable: true
   })
+  update_at: Date
 
   //Relacion con tabla 'tag'
   @OneToMany(type => Tag, tag => tag.user)
